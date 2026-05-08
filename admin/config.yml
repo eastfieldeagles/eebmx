@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: liammallett-ms/eebmx
+  repo: eastfieldeagles/eebmx
   branch: main
   base_url: https://decap-auth.adverts89.workers.dev
   auth_endpoint: /auth
