@@ -75,6 +75,7 @@ collections:
           - { label: "Heading (purple part)", name: "heading_accent", widget: "string", hint: "Example: 'that punches above its weight.'" }
           - { label: "Photo", name: "image", widget: "image", required: false, hint: "A wide track shot or great race-day photo. Leave empty to show the placeholder." }
           - { label: "Photo Caption (placeholder text when no photo)", name: "image_label", widget: "string", required: false }
+          - { label: "About Video URL (YouTube)", name: "video_url", widget: "string", required: false, hint: "Paste a YouTube video URL or video ID. If set, this replaces the photo above. Leave blank to use the photo. Example: https://youtu.be/dQw4w9WgXcQ" }
           - label: "Paragraphs"
             name: "paragraphs"
             widget: "list"
