@@ -5,7 +5,7 @@ backend:
   name: github
   repo: eastfieldeagles/eebmx
   branch: main
-  base_url: https://decap-auth.adverts89.workers.dev
+  base_url: https://decap-auth.eastfieldeagles.workers.dev
   auth_endpoint: /auth
 
 # Uploaded media (logos, photos, intro video) — saved into /uploads/
