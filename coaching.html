@@ -611,7 +611,7 @@
   <!-- Nav -->
   <nav id="nav">
     <a href="/" class="logo-mark" aria-label="Maroondah BMX Club">
-      <img id="navLogo" src="/uploads/eebmx-logo-removebg-preview.png" alt="Maroondah BMX Club">
+      <img id="navLogo" src="" alt="Maroondah BMX Club">
     </a>
     <ul class="nav-links">
       <li><a href="/#about">About</a></li>
@@ -741,10 +741,16 @@
     }
 
     // Hide Shop link in nav unless enabled in site settings
-    try {
+   try {
       const siteRes = await fetch('content/site.json?t=' + Date.now());
       if (siteRes.ok) {
         const site = await siteRes.json();
+        // Sync logo with homepage CMS setting
+        if (site.logo) {
+          const navLogo = document.getElementById('navLogo');
+          if (navLogo) navLogo.src = site.logo;
+        }
+        // Sync shop nav visibility with homepage CMS setting
         if (site.show_shop) {
           const link = document.getElementById('navShopLink');
           if (link) link.style.display = '';
