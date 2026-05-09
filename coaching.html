@@ -185,6 +185,9 @@
     position: relative;
     z-index: 2;
   }
+  .page-title .accent {
+    color: var(--purple-bright);
+  }
   .page-subtitle {
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
@@ -666,7 +669,15 @@
   function render(c) {
     document.title = (c.page_title || 'Coaching') + ' — Maroondah BMX Club';
     $('pageEyebrow').textContent = c.page_title || 'Coaching';
-    $('pageTitle').textContent = (c.page_title || 'Coaching').toUpperCase();
+    // Render title with last word in purple (matching FAQ/Shop treatment)
+    const fullTitle = (c.page_title || 'Coaching').toUpperCase();
+    const words = fullTitle.split(' ');
+    if (words.length > 1) {
+      const lastWord = words.pop();
+      $('pageTitle').innerHTML = esc(words.join(' ')) + ' <span class="accent">' + esc(lastWord) + '</span>';
+    } else {
+      $('pageTitle').textContent = fullTitle;
+    }
     $('pageSubtitle').textContent = c.page_subtitle || '';
 
     $('introHeading').innerHTML =
