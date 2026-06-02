@@ -1,9 +1,11 @@
 {
-  "chat_unanswered_message": "I don't have an answer for that one. Email us at eastfieldeagles@gmail.com or message us on Facebook/Instagram and we'll get back to you.",
+  "messenger_username": "MaroondahBMXclubEastfield",
+  "contact_email": "ride@maroondahbmxclub.com.au",
+  "chat_unanswered_message": "I don't have an answer for that one. Email us at ride@maroondahbmxclub.com.au or message us on Facebook/Instagram and we'll get back to you.",
   "page_title": "Frequently Asked Questions",
   "page_subtitle": "Everything you need to know about racing, coaching, gear and gate nights at the Eagles Nest.",
   "chat_button_label": "Got questions?",
-  "no_results_text": "No questions matched. Try different words, or email us at eastfieldeagles@gmail.com",
+  "no_results_text": "No questions matched. Try different words, or email us at ride@maroondahbmxclub.com.au",
   "chat_panel_title": "Eagles FAQ Bot",
   "chat_panel_subtitle": "Tap a topic or search to find answers.",
   "search_placeholder": "Search questions…",
@@ -220,7 +222,7 @@
         },
         {
           "question": "Can my business sponsor the club?",
-          "answer": "Yes — we love local sponsors. We have packages that give your business visibility with a passionate audience while helping us maintain the track, programs and community. Email eastfieldeagles@gmail.com to talk about it."
+          "answer": "Yes — we love local sponsors. We have packages that give your business visibility with a passionate audience while helping us maintain the track, programs and community. Email ride@maroondahbmxclub.com.au to talk about it."
         },
         {
           "question": "Where can I follow the club online?",
