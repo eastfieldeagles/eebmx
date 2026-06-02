@@ -239,6 +239,8 @@ collections:
           - { label: "Chat Widget Header Title", name: "chat_panel_title", widget: "string" }
           - { label: "Chat Widget Header Subtitle", name: "chat_panel_subtitle", widget: "string" }
           - { label: "Chat Bot Unanswered Message", name: "chat_unanswered_message", widget: "text", hint: "Shown when chat search has no matches" }
+          - { label: "Facebook Page username (Messenger button)", name: "messenger_username", widget: "string", required: false, hint: "The bit after facebook.com/ — builds the m.me link in the chat. Leave blank to hide the Messenger button." }
+          - { label: "Contact email (chat 'Email the club' button)", name: "contact_email", widget: "string", required: false, default: "ride@maroondahbmxclub.com.au" }
           - label: "Categories"
             name: "categories"
             widget: "list"
@@ -307,4 +309,3 @@ collections:
                   - { label: "Sale (red)", value: "sale" }
               - { label: "Available to buy?", name: "available", widget: "boolean", default: true, hint: "Toggle off to disable the buy button while keeping the product visible (e.g. for 'Coming Soon' items)." }
           - { label: "Footer Note", name: "footer_note", widget: "string" }
-
