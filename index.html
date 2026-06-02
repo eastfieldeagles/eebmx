@@ -1695,6 +1695,32 @@ function dismissIntro() {
   .chat-back-btn:hover { color: var(--green); border-color: var(--green); }
   .chat-faq-link { display: block; text-align: center; margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--green); text-decoration: none; text-transform: uppercase; padding: 10px; border: 1px solid var(--green); border-radius: 8px; transition: all 0.2s; }
   .chat-faq-link:hover { background: var(--green); color: var(--black); }
+  .chat-talk-btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; background:transparent; border:1px dashed var(--purple-bright); color:var(--grey-2); padding:11px; border-radius:10px; cursor:pointer; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; margin-top:10px; transition:all 0.2s; }
+  .chat-talk-btn:hover { border-style:solid; color:var(--white); background:rgba(176,98,232,0.08); }
+  .chat-helpful { display:flex; gap:8px; flex-wrap:wrap; margin:2px 0 8px; }
+  .chat-mini { background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--grey-2); padding:8px 13px; border-radius:999px; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.06em; cursor:pointer; transition:all 0.2s; }
+  .chat-mini:hover { border-color:var(--purple-bright); color:var(--white); }
+  .chat-channels { display:flex; flex-direction:column; gap:10px; margin-top:6px; }
+  .chat-channel { display:flex; align-items:center; gap:12px; padding:13px; border-radius:13px; cursor:pointer; border:none; width:100%; text-align:left; font-family:inherit; transition:all 0.22s; }
+  .chat-channel .ico { width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .chat-channel .ct { flex:1; }
+  .chat-channel .ct b { display:block; font-size:14px; font-weight:700; }
+  .chat-channel .ct span { display:block; font-size:11px; opacity:0.82; margin-top:2px; }
+  .chat-channel .ar { font-size:17px; opacity:0.7; }
+  .chat-channel.msg { background:var(--green); color:var(--black); }
+  .chat-channel.msg:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,255,148,0.3); }
+  .chat-channel.msg .ico { background:rgba(0,0,0,0.16); }
+  .chat-channel.email { background:transparent; border:1.5px solid var(--purple-bright); color:var(--purple-bright); }
+  .chat-channel.email:hover { background:rgba(176,98,232,0.1); transform:translateY(-2px); }
+  .chat-channel.email .ico { background:rgba(176,98,232,0.18); }
+  .chat-note { font-family:'JetBrains Mono', monospace; font-size:10px; line-height:1.5; color:var(--grey); letter-spacing:0.03em; margin-top:8px; padding:0 2px; }
+  .chat-note strong { color:var(--grey-2); }
+  .chat-eform { display:flex; flex-direction:column; gap:9px; margin-top:6px; }
+  .chat-eform input, .chat-eform textarea { background:var(--black); border:1px solid var(--border); border-radius:10px; padding:11px 13px; color:var(--white); font-family:inherit; font-size:13.5px; resize:none; width:100%; }
+  .chat-eform input:focus, .chat-eform textarea:focus { outline:none; border-color:var(--purple-bright); }
+  .chat-eform input::placeholder, .chat-eform textarea::placeholder { color:var(--grey); }
+  .chat-send { background:var(--green); color:var(--black); border:none; border-radius:10px; padding:12px; font-family:inherit; font-weight:700; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+  .chat-send:hover { background:var(--white); }
   @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 700px) {
     .chat-launcher {
@@ -1756,6 +1782,10 @@ function dismissIntro() {
   let activeCategoryIndex = null;
   let activeAnswer = null;
 
+  const CHAT = { messengerUrl: '', email: 'ride@maroondahbmxclub.com.au', ref: 'website_faq' };
+  const ICON_MSG = '<svg width="19" height="19" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.4 1.3 4.5 3.4 5.9L5 21l4.3-2.3c.9.2 1.8.3 2.7.3 5.5 0 10-3.6 10-8s-4.5-8-10-8z" fill="#0a0710"/></svg>';
+  const ICON_MAIL = '<svg width="19" height="19" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#B062E8" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="#B062E8" stroke-width="2"/></svg>';
+
   const $ = (id) => document.getElementById(id);
   const esc = (s) => (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function highlight(text, query) {
@@ -1789,6 +1819,54 @@ function linkify(text) {
     result = result.replace(/(^|>|\s)([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com\.au|org\.au|com|org|net|cc|io|app|edu|gov)(?:\/[^\s<]*)?)(?=[\s<.,;:!?)]|$)/gi, '$1<a href="https://$2" target="_blank" rel="noopener">$2</a>');
     return result;
   }
+  function channelCards(body) {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-channels';
+    if (CHAT.messengerUrl) {
+      const m = document.createElement('button');
+      m.type = 'button'; m.className = 'chat-channel msg';
+      m.innerHTML = '<span class="ico">' + ICON_MSG + '</span><span class="ct"><b>Message on Messenger</b><span>Fastest — we reply from our phones</span></span><span class="ar">↗</span>';
+      m.addEventListener('click', () => {
+        const u = CHAT.messengerUrl + (CHAT.messengerUrl.indexOf('?') > -1 ? '&' : '?') + 'ref=' + encodeURIComponent(CHAT.ref);
+        window.open(u, '_blank', 'noopener');
+      });
+      wrap.appendChild(m);
+    }
+    const e = document.createElement('button');
+    e.type = 'button'; e.className = 'chat-channel email';
+    e.innerHTML = '<span class="ico">' + ICON_MAIL + '</span><span class="ct"><b>Email the club</b><span>No Facebook needed</span></span><span class="ar">→</span>';
+    e.addEventListener('click', () => { chatView = 'email'; renderChat(); });
+    wrap.appendChild(e);
+    body.appendChild(wrap);
+    if (CHAT.messengerUrl) {
+      const note = document.createElement('div');
+      note.className = 'chat-note';
+      note.innerHTML = '<strong>Heads up:</strong> Messenger needs a Facebook login. No Facebook? Email reaches us just the same.';
+      body.appendChild(note);
+    }
+  }
+
+  function sendChatEmail(f) {
+    const name = f.querySelector('#chatEName').value.trim();
+    const email = f.querySelector('#chatEEmail').value.trim();
+    const msg = f.querySelector('#chatEMsg').value.trim();
+    if (!email || !msg) { f.querySelector('#chatEMsg').focus(); return; }
+    const subject = 'Website enquiry — Eastfield Eagles';
+    const mailBody = 'From: ' + name + ' (' + email + ')\n\n' + msg;
+    window.location.href = 'mailto:' + CHAT.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(mailBody);
+    const body = $('chatBody');
+    body.innerHTML = '';
+    const done = document.createElement('div');
+    done.className = 'chat-bubble bot';
+    done.innerHTML = 'Thanks! 🦅 Your email app should have opened with your message ready to send. If it didn\'t, email us at <a href="mailto:' + CHAT.email + '">' + CHAT.email + '</a>.';
+    body.appendChild(done);
+    const home = document.createElement('button');
+    home.type = 'button'; home.className = 'chat-talk-btn';
+    home.innerHTML = '← Back to questions';
+    home.addEventListener('click', () => { chatView = 'home'; renderChat(); });
+    body.appendChild(home);
+  }
+
   function renderChat() {
     const body = $('chatBody');
     body.innerHTML = '';
@@ -1812,6 +1890,11 @@ function linkify(text) {
       faqLink.href = '/faq.html';
       faqLink.textContent = 'View Full FAQ Page →';
       body.appendChild(faqLink);
+      const talk = document.createElement('button');
+      talk.className = 'chat-talk-btn'; talk.type = 'button';
+      talk.innerHTML = '👤 Talk to a volunteer';
+      talk.addEventListener('click', () => { chatView = 'escalate'; renderChat(); });
+      body.appendChild(talk);
     } else if (chatView === 'category') {
       const cat = faqData.categories[activeCategoryIndex];
       const back = document.createElement('button');
@@ -1847,6 +1930,13 @@ function linkify(text) {
       ans.className = 'chat-bubble bot';
      ans.innerHTML = linkifyChat(q.answer);
       body.appendChild(ans);
+      const help = document.createElement('div');
+      help.className = 'chat-helpful';
+      const hb = document.createElement('button');
+      hb.className = 'chat-mini'; hb.type = 'button'; hb.textContent = 'Still need help?';
+      hb.addEventListener('click', () => { chatView = 'escalate'; renderChat(); });
+      help.appendChild(hb);
+      body.appendChild(help);
       if (cat.questions.length > 1) {
         const suggest = document.createElement('div');
         suggest.className = 'chat-bubble bot';
@@ -1861,6 +1951,30 @@ function linkify(text) {
           body.appendChild(btn);
         });
       }
+    } else if (chatView === 'escalate') {
+      const back = document.createElement('button');
+      back.className = 'chat-back-btn'; back.type = 'button'; back.textContent = '← Back to topics';
+      back.addEventListener('click', () => { chatView = 'home'; renderChat(); });
+      body.appendChild(back);
+      const intro = document.createElement('div');
+      intro.className = 'chat-bubble bot';
+      intro.innerHTML = 'No worries — I can put you through to a club volunteer. <strong>How would you like to reach us?</strong>';
+      body.appendChild(intro);
+      channelCards(body);
+    } else if (chatView === 'email') {
+      const back = document.createElement('button');
+      back.className = 'chat-back-btn'; back.type = 'button'; back.textContent = '← Back';
+      back.addEventListener('click', () => { chatView = 'escalate'; renderChat(); });
+      body.appendChild(back);
+      const intro = document.createElement('div');
+      intro.className = 'chat-bubble bot';
+      intro.innerHTML = 'Sweet — drop your details and we\'ll get back to you by email.';
+      body.appendChild(intro);
+      const f = document.createElement('div');
+      f.className = 'chat-eform';
+      f.innerHTML = '<input id="chatEName" placeholder="Your name" autocomplete="name"><input id="chatEEmail" type="email" placeholder="Email address" autocomplete="email"><textarea id="chatEMsg" rows="3" placeholder="Your question…"></textarea><button class="chat-send" type="button">Send to the club →</button>';
+      body.appendChild(f);
+      f.querySelector('.chat-send').addEventListener('click', () => sendChatEmail(f));
     }
     body.scrollTop = body.scrollHeight;
   }
@@ -1886,6 +2000,11 @@ function linkify(text) {
       none.className = 'chat-bubble bot';
       none.innerHTML = esc(faqData.chat_unanswered_message || "I don't have an answer for that. Try different words or email us.");
       body.appendChild(none);
+      const ask = document.createElement('div');
+      ask.className = 'chat-bubble bot';
+      ask.innerHTML = 'Want to ask a club volunteer directly?';
+      body.appendChild(ask);
+      channelCards(body);
       return;
     }
     const head = document.createElement('div');
@@ -1912,6 +2031,9 @@ function linkify(text) {
     $('chatTitle').textContent = faqData.chat_panel_title || 'Eagles FAQ Bot';
     $('chatSub').textContent = faqData.chat_panel_subtitle || '';
     $('chatSearch').placeholder = faqData.search_placeholder || 'Search…';
+
+    CHAT.email = faqData.contact_email || CHAT.email;
+    CHAT.messengerUrl = faqData.messenger_url || (faqData.messenger_username ? 'https://m.me/' + faqData.messenger_username : '');
 
     renderChat();
 
