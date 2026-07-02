@@ -33,6 +33,18 @@
       "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
       "price_label": "Each",
       "category": "Race Kit"
+    },
+    {
+      "badge": "Club Merch",
+      "price": "$20",
+      "available": true,
+      "name": "Maroondah Tee - Black",
+      "badge_style": "new",
+      "image": "/uploads/6e274f03-5bfd-4feb-8d25-2313921602a2.jpg",
+      "buy_label": "Buy",
+      "description": "Maroondah BMX Club Logo Tee",
+      "price_label": "Club Merch",
+      "category": "All"
     }
   ],
   "footer_note": "All proceeds support track maintenance and club programs"
