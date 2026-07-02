@@ -10,7 +10,7 @@
     {
       "badge": "Club Merch",
       "price": "$20",
-      "available": false,
+      "available": true,
       "name": "Maroondah Tee - Black",
       "badge_style": "new",
       "buy_url": "https://square.link/u/3cFlJdLd",
@@ -23,7 +23,7 @@
     {
       "badge": "Club Merch",
       "price": "$20",
-      "available": false,
+      "available": true,
       "name": "Maroondah Tee - White",
       "badge_style": "new",
       "buy_url": "https://square.link/u/UcNDmw67",
