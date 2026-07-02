@@ -8,6 +8,32 @@
   ],
   "products": [
     {
+      "badge": "Club Merch",
+      "price": "$20",
+      "available": false,
+      "name": "Maroondah Tee - Black",
+      "badge_style": "new",
+      "buy_url": "https://square.link/u/3cFlJdLd",
+      "image": "/uploads/6e274f03-5bfd-4feb-8d25-2313921602a2.jpg",
+      "buy_label": "Buy",
+      "description": "Maroondah BMX Club Logo Tee.\nAdults and kids sizes available.\nLimited run only!",
+      "price_label": "Club Merch",
+      "category": "All"
+    },
+    {
+      "badge": "Club Merch",
+      "price": "$20",
+      "available": false,
+      "name": "Maroondah Tee White",
+      "badge_style": "new",
+      "buy_url": "https://square.link/u/UcNDmw67",
+      "image": "/uploads/b40c3109-5007-4e95-94a4-c6a9b1ab0ac2.jpg",
+      "buy_label": "Buy",
+      "description": "Maroondah BMX Club Logo Tee.\nAdults and kids sizes available.\nLimited run only!",
+      "price_label": "Club Merch",
+      "category": "All"
+    },
+    {
       "badge": "Race Wear",
       "price": "$65",
       "available": false,
@@ -33,32 +59,6 @@
       "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
       "price_label": "Each",
       "category": "Race Kit"
-    },
-    {
-      "badge": "Club Merch",
-      "price": "$20",
-      "available": false,
-      "name": "Maroondah Tee - Black",
-      "badge_style": "new",
-      "buy_url": "https://square.link/u/3cFlJdLd",
-      "image": "/uploads/6e274f03-5bfd-4feb-8d25-2313921602a2.jpg",
-      "buy_label": "Buy",
-      "description": "Maroondah BMX Club Logo Tee.\nAdults and kids sizes available.\nLimited run only!",
-      "price_label": "Club Merch",
-      "category": "All"
-    },
-    {
-      "badge": "Club Merch",
-      "price": "$20",
-      "available": false,
-      "name": "Maroondah Tee White",
-      "badge_style": "new",
-      "buy_url": "https://square.link/u/UcNDmw67",
-      "image": "/uploads/b40c3109-5007-4e95-94a4-c6a9b1ab0ac2.jpg",
-      "buy_label": "Buy",
-      "description": "Maroondah BMX Club Logo Tee.\nAdults and kids sizes available.\nLimited run only!",
-      "price_label": "Club Merch",
-      "category": "All"
     }
   ],
   "footer_note": "All proceeds support track maintenance and club programs"
