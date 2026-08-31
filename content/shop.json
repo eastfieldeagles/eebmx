@@ -36,7 +36,7 @@
     {
       "badge": "Race Wear",
       "price": "$65",
-      "available": false,
+      "available": true,
       "name": "Eastfield Eagles Race Jersey - Black",
       "badge_style": "signature",
       "buy_url": "https://square.link/u/CcqjTEeM",
@@ -50,7 +50,7 @@
     {
       "badge": "Race Wear",
       "price": "$65",
-      "available": false,
+      "available": true,
       "name": "Eastfield Eagles Race Jersey - Coloured",
       "badge_style": "signature",
       "buy_url": "https://square.link/u/Uew8v3Nl",
