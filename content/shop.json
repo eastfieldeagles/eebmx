@@ -59,6 +59,19 @@
       "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
       "price_label": "Each",
       "category": "Race Kit"
+    },
+    {
+      "badge": "Event",
+      "price": "$50",
+      "available": true,
+      "name": "Nest Fest Class Sponsor",
+      "badge_style": "new",
+      "buy_url": "https://maroondahbmxclub.square.site/product/nest-fest-26-class-sponsors/5KZJ4MX4MO3QGYMGACQP3OHD?cs=true&cst=custom",
+      "image": "/uploads/nest-fest-26-class-sponsor-selection.png",
+      "buy_label": "Buy",
+      "description": "Support Nest Fest and advertise your business at the event. ",
+      "price_label": "Per Class",
+      "category": "Event"
     }
   ],
   "footer_note": "All proceeds support track maintenance and club programs"
