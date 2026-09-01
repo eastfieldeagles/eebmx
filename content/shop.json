@@ -72,6 +72,19 @@
       "description": "Personalised long-sleeve race jersey from Ace Race. Custom name and number on the back. Made-to-order, 4-6 week lead time.",
       "price_label": "Each",
       "category": "Race Kit"
+    },
+    {
+      "badge": "Event",
+      "price": "$200",
+      "available": true,
+      "name": "Nest Fest Berm Sponsor",
+      "badge_style": "new",
+      "buy_url": "https://maroondahbmxclub.square.site/product/nest-fest-berm-sponsor/7G46OIPNCJKTUADWRWQGQTGZ?cs=true&cst=custom",
+      "image": "/uploads/nest-fest-berm-sponsor.png",
+      "buy_label": "Buy",
+      "description": "Get prime advertising position at Nest Fest up close to the action!\n\nDouble Tent Spot at the berm.\nCallout on Social Media.\nCall outs by the commentator throughout the day.\nPost event round up in Social media and content.",
+      "price_label": "Per Berm",
+      "category": "Event"
     }
   ],
   "footer_note": "All proceeds support track maintenance and club programs"
