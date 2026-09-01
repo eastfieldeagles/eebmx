@@ -23,7 +23,7 @@
     {
       "badge": "Event",
       "price": "$200",
-      "available": false,
+      "available": true,
       "name": "Nest Fest Berm Sponsor",
       "badge_style": "new",
       "buy_url": "https://maroondahbmxclub.square.site/product/nest-fest-berm-sponsor/7G46OIPNCJKTUADWRWQGQTGZ?cs=true&cst=custom",
