@@ -34,6 +34,18 @@
       "category": "Event"
     },
     {
+      "price": "$20",
+      "available": true,
+      "name": "Nest Fest Tee",
+      "badge_style": "new",
+      "buy_url": "https://maroondahbmxclub.square.site/product/nest-fest-tee/J2FFORMECIKQDY4ACVJRAZP5?cs=true&cst=custom",
+      "image": "/uploads/nest-fest-tshirt-design.png",
+      "buy_label": "Buy",
+      "description": "Nest Fest Tees. Please measure your chest size before ordering, we recommending sizing up. \nOnly wash in cold water, do not tumble dry ",
+      "price_label": "EACH",
+      "category": "Event"
+    },
+    {
       "badge": "Club Merch",
       "price": "$20",
       "available": true,
